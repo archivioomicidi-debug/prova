@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grazie al Cactus · Piante grasse in barattoli decorati a mano</title>
-  <meta name="description" content="Grazie al Cactus: cactus e piante grasse in barattoli e latte recuperate, decorate a mano una per una. Pezzi unici, regali che durano.">
+  <meta name="description" content="Grazie al Cactus: cactus e piante grasse in barattoli e latte recuperate, decorate a mano una per una. Compra un pezzo disponibile o richiedine uno su misura.">
   <meta property="og:title" content="Grazie al Cactus">
-  <meta property="og:description" content="Cactus e piante grasse in barattoli decorati a mano. Pezzi unici, regali che durano.">
+  <meta property="og:description" content="Cactus e piante grasse in barattoli decorati a mano. Pezzi unici o su misura.">
   <meta property="og:image" content="img/barattolo-verde.jpg">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,10 +23,14 @@
     <span class="brand-name">Grazie <em>al Cactus</em></span>
   </a>
   <nav class="nav" aria-label="Navigazione principale">
-    <a href="#collezione">Collezione</a>
+    <a href="#disponibili">Disponibili</a>
+    <a href="#su-misura">Su misura</a>
     <a href="#come-nascono">Come nascono</a>
     <a href="#cura">Cura</a>
-    <a href="#contatti" class="nav-cta">Ordina</a>
+    <button type="button" class="cart-btn" id="cart-btn" aria-label="Apri il carrello">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6.5M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+      <span class="cart-count" id="cart-count" hidden>0</span>
+    </button>
   </nav>
 </header>
 
@@ -39,12 +43,12 @@
       <h1>Piante grasse che raccontano una storia.</h1>
       <p class="lead">
         Ogni cactus vive in un barattolo o in una latta salvata dal cestino e decorata
-        a mano. Nessuno è uguale a un altro: scegli quello che ti somiglia,
-        o raccontaci la persona a cui vuoi regalarlo.
+        a mano. Scegli un pezzo già pronto, oppure raccontaci chi lo riceverà
+        e lo creiamo per te.
       </p>
       <div class="hero-actions">
-        <a href="#collezione" class="btn btn-primary">Guarda la collezione</a>
-        <a href="#contatti" class="btn btn-ghost">Chiedi un pezzo su misura</a>
+        <a href="#disponibili" class="btn btn-primary">Vedi i pezzi disponibili</a>
+        <a href="#su-misura" class="btn btn-ghost">Crea il tuo su misura</a>
       </div>
     </div>
     <figure class="hero-image">
@@ -67,7 +71,7 @@
     <div class="value">
       <span class="value-icon" aria-hidden="true">🌵</span>
       <h3>Piante vere e facili</h3>
-      <p>Cactus e succulente che chiedono pochissima acqua e tanta luce. Perfetti anche per chi non ha il pollice verde.</p>
+      <p>Cactus e succulente che chiedono pochissima acqua e tanta luce. Perfetti anche senza pollice verde.</p>
     </div>
     <div class="value">
       <span class="value-icon" aria-hidden="true">🎁</span>
@@ -76,86 +80,69 @@
     </div>
   </section>
 
-  <!-- COLLEZIONE -->
-  <section id="collezione" class="collection">
+  <!-- DISPONIBILI -->
+  <section id="disponibili" class="collection">
     <div class="section-head">
-      <p class="eyebrow">La collezione</p>
-      <h2>Ogni pezzo è uno solo. Quando è venduto, non torna.</h2>
-      <p class="muted">Clicca su una foto per ingrandirla. Per prenotare un pezzo scrivici: ti rispondiamo con disponibilità e prezzo.</p>
+      <p class="eyebrow">Disponibili ora</p>
+      <h2>Pronti per partire. Ogni pezzo è uno solo.</h2>
+      <p class="muted">Quello che vedi in foto è esattamente quello che ricevi. Clicca sulla foto per ingrandirla, aggiungi al carrello e ti confermiamo tutto in chat.</p>
+    </div>
+    <div class="grid" id="product-grid"></div>
+  </section>
+
+  <!-- SU MISURA -->
+  <section id="su-misura" class="custom">
+    <div class="custom-intro">
+      <p class="eyebrow">Su misura</p>
+      <h2>Il tuo, da zero.</h2>
+      <p class="muted">Un colore, una frase, un tema, una persona. Componi il tuo pezzo qui sotto: il prezzo si aggiorna mentre scegli. Prima della consegna ti mandiamo le foto e, se qualcosa non ti convince, lo sistemiamo.</p>
+      <ul class="custom-points">
+        <li><strong>Tempi.</strong> 7–10 giorni dalla conferma.</li>
+        <li><strong>Pagamento.</strong> Ti scriviamo noi per confermare e concordare il pagamento. Nessun addebito ora.</li>
+        <li><strong>Immagini tue.</strong> Per il découpage puoi mandarci una foto o un disegno in chat dopo l'ordine.</li>
+      </ul>
     </div>
 
-    <div class="grid">
-
-      <article class="card" data-name="Brilla sempre">
-        <button class="card-media" type="button" data-full="img/brilla-sempre.jpg" aria-label="Ingrandisci: Brilla sempre">
-          <img src="img/brilla-sempre-sm.jpg" alt="Due latte decorate: una dorata con un cactus colonnare e una blu con stelle argentate e la scritta Brilla sempre" loading="lazy" width="600" height="800">
-        </button>
-        <div class="card-body">
-          <span class="tag">Con dedica</span>
-          <h3>Brilla sempre</h3>
-          <p>Latta blu notte con stelle in rilievo e scritta a mano, oppure oro grezzo effetto pietra. Il messaggio si può personalizzare.</p>
-          <a class="card-cta" href="#contatti" data-product="Brilla sempre">Chiedi info →</a>
+    <form class="configurator" id="configurator">
+      <fieldset>
+        <legend>1. Contenitore</legend>
+        <div class="options" id="opt-contenitore"></div>
+      </fieldset>
+      <fieldset>
+        <legend>2. Decorazione</legend>
+        <div class="options" id="opt-decorazione"></div>
+      </fieldset>
+      <fieldset>
+        <legend>3. Pianta</legend>
+        <div class="options" id="opt-pianta"></div>
+      </fieldset>
+      <fieldset>
+        <legend>4. Racconta l'idea</legend>
+        <label>
+          <span>Tema o colori</span>
+          <input type="text" id="cfg-tema" placeholder="Es. blu notte con stelle, rose vintage, streghe, mare…" maxlength="80">
+        </label>
+        <label>
+          <span>Dedica o scritta <small>(facoltativa, max 40 caratteri)</small></span>
+          <input type="text" id="cfg-dedica" placeholder="Es. Brilla sempre!" maxlength="40">
+        </label>
+        <label>
+          <span>Note <small>(facoltative)</small></span>
+          <textarea id="cfg-note" rows="3" placeholder="Per chi è, occasione, cosa deve trasmettere…"></textarea>
+        </label>
+      </fieldset>
+      <div class="configurator-footer">
+        <label class="qty">
+          <span>Quantità</span>
+          <input type="number" id="cfg-qty" min="1" max="10" value="1">
+        </label>
+        <div class="cfg-price">
+          <span class="muted small">Prezzo</span>
+          <strong id="cfg-total">€ 0</strong>
         </div>
-      </article>
-
-      <article class="card" data-name="Il barattolo verde">
-        <button class="card-media" type="button" data-full="img/barattolo-verde.jpg" aria-label="Ingrandisci: Il barattolo verde">
-          <img src="img/barattolo-verde-sm.jpg" alt="Barattolo di vetro dipinto verde metallizzato con il logo Grazie al Cactus e un cactus ramificato" loading="lazy" width="600" height="800">
-        </button>
-        <div class="card-body">
-          <span class="tag">Iconico</span>
-          <h3>Il barattolo verde</h3>
-          <p>Vetro recuperato, finitura verde metallizzata e il nostro logo. Il pezzo che rappresenta il laboratorio.</p>
-          <a class="card-cta" href="#contatti" data-product="Il barattolo verde">Chiedi info →</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="Fiori vintage">
-        <button class="card-media" type="button" data-full="img/fiori-vintage.jpg" aria-label="Ingrandisci: Fiori vintage">
-          <img src="img/fiori-vintage-sm.jpg" alt="Latta grande con découpage di peonie bianche e viola scuro, con opuntia e cactus tondo, coperchio decorato" loading="lazy" width="600" height="800">
-        </button>
-        <div class="card-body">
-          <span class="tag">Formato grande</span>
-          <h3>Fiori vintage</h3>
-          <p>Peonie bianche e prugna in découpage su latta grande, con il coperchio decorato che fa da sfondo. Ospita più piante insieme.</p>
-          <a class="card-cta" href="#contatti" data-product="Fiori vintage">Chiedi info →</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="Rose antiche">
-        <button class="card-media" type="button" data-full="img/rose-antiche.jpg" aria-label="Ingrandisci: Rose antiche">
-          <img src="img/rose-antiche-sm.jpg" alt="Latta con découpage di rose rosa e coperchio con una rosa, con haworthia e collana di perle" loading="lazy" width="600" height="800">
-        </button>
-        <div class="card-body">
-          <span class="tag">Romantico</span>
-          <h3>Rose antiche</h3>
-          <p>Rose in stile botanico e bordo rosa. Dentro, una haworthia e una collana di perle che ricade sul bordo.</p>
-          <a class="card-cta" href="#contatti" data-product="Rose antiche">Chiedi info →</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="Le streghe">
-        <button class="card-media" type="button" data-full="img/streghe-gotiche.jpg" aria-label="Ingrandisci: Le streghe">
-          <img src="img/streghe-gotiche-sm.jpg" alt="Due barattoli di vetro con découpage di streghe in stile vintage, uno viola e uno seppia, con cactus e haworthia" loading="lazy" width="600" height="800">
-        </button>
-        <div class="card-body">
-          <span class="tag">Edizione Halloween</span>
-          <h3>Le streghe</h3>
-          <p>Due barattoli in vetro con illustrazioni gotiche e finitura invecchiata. Disponibili singoli o in coppia.</p>
-          <a class="card-cta" href="#contatti" data-product="Le streghe">Chiedi info →</a>
-        </div>
-      </article>
-
-      <article class="card card-custom">
-        <div class="card-body">
-          <span class="tag">Su misura</span>
-          <h3>Il tuo, da zero</h3>
-          <p>Un colore, una frase, un tema, una foto. Raccontaci l'idea e lo realizziamo per te: ti mandiamo le foto prima della consegna.</p>
-          <a class="card-cta" href="#contatti" data-product="un pezzo su misura">Raccontaci l'idea →</a>
-        </div>
-      </article>
-
-    </div>
+        <button type="submit" class="btn btn-primary">Aggiungi al carrello</button>
+      </div>
+    </form>
   </section>
 
   <!-- COME NASCONO -->
@@ -207,46 +194,26 @@
   <!-- CONTATTI -->
   <section id="contatti" class="contact">
     <div class="section-head">
-      <p class="eyebrow">Ordina o chiedi</p>
-      <h2>Scrivici: ti rispondiamo noi, non un modulo.</h2>
-      <p class="muted">Dicci quale pezzo ti piace o che idea hai in testa. Ti confermiamo disponibilità, prezzo e tempi di consegna.</p>
+      <p class="eyebrow">Domande?</p>
+      <h2>Scrivici: rispondiamo noi, non un modulo.</h2>
+      <p class="muted">Per qualsiasi dubbio prima di ordinare, o per vedere altri pezzi che non sono ancora sul sito.</p>
     </div>
-
-    <form class="contact-form" id="contact-form">
-      <label>
-        <span>Ti interessa</span>
-        <select name="product" id="product">
-          <option value="">Scegli un pezzo…</option>
-          <option>Brilla sempre</option>
-          <option>Il barattolo verde</option>
-          <option>Fiori vintage</option>
-          <option>Rose antiche</option>
-          <option>Le streghe</option>
-          <option>un pezzo su misura</option>
-        </select>
-      </label>
-      <label>
-        <span>Il tuo messaggio</span>
-        <textarea name="message" id="message" rows="4" placeholder="Es. Vorrei il barattolo verde come regalo di compleanno, è disponibile?"></textarea>
-      </label>
-      <div class="contact-actions">
-        <button type="submit" class="btn btn-primary btn-wa" data-channel="whatsapp">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
-          Scrivici su WhatsApp
-        </button>
-        <button type="button" class="btn btn-ghost" data-channel="email">Preferisco l'email</button>
-      </div>
-      <p class="form-note">Il messaggio si apre nella tua app: nessun dato viene salvato da questo sito.</p>
-    </form>
-
     <div class="social">
+      <a class="social-link" data-social="whatsapp" href="#" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
+        WhatsApp
+      </a>
       <a class="social-link" data-social="instagram" href="#" target="_blank" rel="noopener">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
-        Seguici su Instagram
+        Instagram
       </a>
       <a class="social-link" data-social="facebook" href="#" target="_blank" rel="noopener">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3Z"/></svg>
         Facebook
+      </a>
+      <a class="social-link" data-social="email" href="#">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>
+        Email
       </a>
     </div>
   </section>
@@ -258,6 +225,54 @@
   <p class="muted small">Pezzi unici: le foto mostrano l'esemplare reale, la pianta può variare leggermente nel tempo. © <span id="year"></span> Grazie al Cactus.</p>
 </footer>
 
+<!-- CARRELLO -->
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<aside class="drawer" id="cart-drawer" aria-label="Carrello" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>Il tuo carrello</h2>
+    <button type="button" class="drawer-close" id="cart-close" aria-label="Chiudi il carrello">×</button>
+  </div>
+
+  <div class="drawer-body">
+    <div id="cart-empty" class="cart-empty">
+      <p>Il carrello è vuoto.</p>
+      <p class="muted small">Aggiungi un pezzo disponibile o componine uno su misura.</p>
+    </div>
+
+    <ul class="cart-list" id="cart-list"></ul>
+
+    <form class="checkout" id="checkout" hidden>
+      <h3>Consegna</h3>
+      <div class="options options-col" id="opt-consegna"></div>
+
+      <h3>I tuoi dati</h3>
+      <label><span>Nome e cognome</span><input type="text" id="co-nome" required autocomplete="name"></label>
+      <label><span>Telefono</span><input type="tel" id="co-tel" required autocomplete="tel" placeholder="Per confermarti l'ordine"></label>
+      <label id="co-indirizzo-wrap" hidden><span>Indirizzo di spedizione</span><textarea id="co-indirizzo" rows="2" autocomplete="street-address" placeholder="Via, numero, CAP, città"></textarea></label>
+      <label><span>Note <small>(facoltative)</small></span><textarea id="co-note" rows="2" placeholder="Es. è un regalo, vorrei riceverlo entro il…"></textarea></label>
+
+      <dl class="totals">
+        <div><dt>Pezzi</dt><dd id="tot-items">€ 0</dd></div>
+        <div><dt>Consegna</dt><dd id="tot-ship">€ 0</dd></div>
+        <div class="grand"><dt>Totale</dt><dd id="tot-grand">€ 0</dd></div>
+      </dl>
+
+      <p class="form-note">L'ordine ti si apre come messaggio già scritto. Lo invii tu, noi rispondiamo con conferma, disponibilità e modalità di pagamento. Nessun addebito ora.</p>
+
+      <div class="checkout-actions">
+        <button type="submit" class="btn btn-primary btn-wa" data-channel="whatsapp">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
+          Invia ordine su WhatsApp
+        </button>
+        <button type="button" class="btn btn-ghost" data-channel="email">Invia via email</button>
+      </div>
+      <button type="button" class="link-btn" id="cart-clear">Svuota il carrello</button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" hidden>
   <button class="lightbox-close" type="button" aria-label="Chiudi">×</button>
@@ -265,6 +280,7 @@
   <p class="lightbox-caption" id="lightbox-caption"></p>
 </div>
 
+<script src="products.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
