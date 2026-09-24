@@ -23,14 +23,11 @@
     <span class="brand-name">Grazie <em>al Cactus</em></span>
   </a>
   <nav class="nav" aria-label="Navigazione principale">
-    <a href="#disponibili">Disponibili</a>
+    <a href="#disponibili">I pezzi</a>
     <a href="#su-misura">Su misura</a>
     <a href="#come-nascono">Come nascono</a>
     <a href="#cura">Cura</a>
-    <button type="button" class="cart-btn" id="cart-btn" aria-label="Apri il carrello">
-      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6.5M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
-      <span class="cart-count" id="cart-count" hidden>0</span>
-    </button>
+    <a href="#" class="nav-cta" data-social="whatsapp" target="_blank" rel="noopener">Scrivici</a>
   </nav>
 </header>
 
@@ -43,12 +40,12 @@
       <h1>Piante grasse che raccontano una storia.</h1>
       <p class="lead">
         Ogni cactus vive in un barattolo o in una latta salvata dal cestino e decorata
-        a mano. Scegli un pezzo già pronto, oppure raccontaci chi lo riceverà
-        e lo creiamo per te.
+        a mano. Scegli il pezzo che ti piace e scrivici su WhatsApp: ti confermiamo
+        disponibilità e consegna in pochi minuti.
       </p>
       <div class="hero-actions">
-        <a href="#disponibili" class="btn btn-primary">Vedi i pezzi disponibili</a>
-        <a href="#su-misura" class="btn btn-ghost">Crea il tuo su misura</a>
+        <a href="#disponibili" class="btn btn-primary">Guarda i pezzi</a>
+        <a href="#su-misura" class="btn btn-ghost">Chiedi un pezzo su misura</a>
       </div>
     </div>
     <figure class="hero-image">
@@ -83,9 +80,9 @@
   <!-- DISPONIBILI -->
   <section id="disponibili" class="collection">
     <div class="section-head">
-      <p class="eyebrow">Disponibili ora</p>
+      <p class="eyebrow">I pezzi</p>
       <h2>Pronti per partire. Ogni pezzo è uno solo.</h2>
-      <p class="muted">Quello che vedi in foto è esattamente quello che ricevi. Clicca sulla foto per ingrandirla, aggiungi al carrello e ti confermiamo tutto in chat.</p>
+      <p class="muted">Quello che vedi in foto è esattamente quello che ricevi. Clicca sulla foto per ingrandirla. Per ordinare premi il pulsante: si apre WhatsApp con il messaggio già scritto, tu lo invii e noi ti rispondiamo.</p>
     </div>
     <div class="grid" id="product-grid"></div>
   </section>
@@ -95,53 +92,40 @@
     <div class="custom-intro">
       <p class="eyebrow">Su misura</p>
       <h2>Il tuo, da zero.</h2>
-      <p class="muted">Un colore, una frase, un tema, una persona. Componi il tuo pezzo qui sotto: il prezzo si aggiorna mentre scegli. Prima della consegna ti mandiamo le foto e, se qualcosa non ti convince, lo sistemiamo.</p>
+      <p class="muted">Un colore, una frase, un tema, una persona. Raccontaci l'idea e ti rispondiamo con una proposta, il prezzo e i tempi. Prima della consegna ti mandiamo le foto e, se qualcosa non ti convince, lo sistemiamo.</p>
       <ul class="custom-points">
         <li><strong>Tempi.</strong> 7–10 giorni dalla conferma.</li>
-        <li><strong>Pagamento.</strong> Ti scriviamo noi per confermare e concordare il pagamento. Nessun addebito ora.</li>
-        <li><strong>Immagini tue.</strong> Per il découpage puoi mandarci una foto o un disegno in chat dopo l'ordine.</li>
+        <li><strong>Prezzo.</strong> Da 18 € per un barattolo in vetro, da 20 € per una latta. Dipende da decorazione e pianta.</li>
+        <li><strong>Immagini tue.</strong> Per il découpage puoi mandarci una foto o un disegno direttamente in chat.</li>
       </ul>
     </div>
 
-    <form class="configurator" id="configurator">
+    <form class="custom-form" id="custom-form">
       <fieldset>
-        <legend>1. Contenitore</legend>
-        <div class="options" id="opt-contenitore"></div>
-      </fieldset>
-      <fieldset>
-        <legend>2. Decorazione</legend>
-        <div class="options" id="opt-decorazione"></div>
-      </fieldset>
-      <fieldset>
-        <legend>3. Pianta</legend>
-        <div class="options" id="opt-pianta"></div>
-      </fieldset>
-      <fieldset>
-        <legend>4. Racconta l'idea</legend>
-        <label>
-          <span>Tema o colori</span>
-          <input type="text" id="cfg-tema" placeholder="Es. blu notte con stelle, rose vintage, streghe, mare…" maxlength="80">
-        </label>
-        <label>
-          <span>Dedica o scritta <small>(facoltativa, max 40 caratteri)</small></span>
-          <input type="text" id="cfg-dedica" placeholder="Es. Brilla sempre!" maxlength="40">
-        </label>
-        <label>
-          <span>Note <small>(facoltative)</small></span>
-          <textarea id="cfg-note" rows="3" placeholder="Per chi è, occasione, cosa deve trasmettere…"></textarea>
-        </label>
-      </fieldset>
-      <div class="configurator-footer">
-        <label class="qty">
-          <span>Quantità</span>
-          <input type="number" id="cfg-qty" min="1" max="10" value="1">
-        </label>
-        <div class="cfg-price">
-          <span class="muted small">Prezzo</span>
-          <strong id="cfg-total">€ 0</strong>
+        <legend>Che contenitore preferisci?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="tipo" value="Barattolo di vetro" checked><span class="option-box"><span class="option-label">Barattolo di vetro</span><span class="option-note">circa 12–14 cm</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Latta piccola"><span class="option-box"><span class="option-label">Latta piccola</span><span class="option-note">circa 10 cm</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Latta grande"><span class="option-box"><span class="option-label">Latta grande</span><span class="option-note">circa 15 cm, più piante</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Consigliatemi voi"><span class="option-box"><span class="option-label">Consigliatemi voi</span><span class="option-note">in base all'idea</span></span></label>
         </div>
-        <button type="submit" class="btn btn-primary">Aggiungi al carrello</button>
+      </fieldset>
+      <label>
+        <span>Raccontaci l'idea</span>
+        <textarea id="cf-idea" rows="4" required placeholder="Es. È per mia sorella che ama le stelle: vorrei qualcosa di blu notte con una frase, e una pianta facile da tenere."></textarea>
+      </label>
+      <label>
+        <span>Dedica o scritta <small>(facoltativa)</small></span>
+        <input type="text" id="cf-dedica" maxlength="40" placeholder="Es. Brilla sempre!">
+      </label>
+      <div class="custom-actions">
+        <button type="submit" class="btn btn-wa">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
+          Invia la richiesta su WhatsApp
+        </button>
+        <button type="button" class="btn btn-ghost" data-channel="email">Preferisco l'email</button>
       </div>
+      <p class="form-note">Il messaggio si apre nella tua app già scritto: lo controlli e lo invii tu. Questo sito non salva nessun dato.</p>
     </form>
   </section>
 
@@ -194,9 +178,9 @@
   <!-- CONTATTI -->
   <section id="contatti" class="contact">
     <div class="section-head">
-      <p class="eyebrow">Domande?</p>
+      <p class="eyebrow">Contatti</p>
       <h2>Scrivici: rispondiamo noi, non un modulo.</h2>
-      <p class="muted">Per qualsiasi dubbio prima di ordinare, o per vedere altri pezzi che non sono ancora sul sito.</p>
+      <p class="muted">Per un ordine, un dubbio, o per vedere altri pezzi che non sono ancora sul sito. Consegna a mano oppure spedizione in tutta Italia.</p>
     </div>
     <div class="social">
       <a class="social-link" data-social="whatsapp" href="#" target="_blank" rel="noopener">
@@ -224,54 +208,6 @@
   <p><strong>Grazie al Cactus</strong> · Piante grasse in vasi recuperati e decorati a mano.</p>
   <p class="muted small">Pezzi unici: le foto mostrano l'esemplare reale, la pianta può variare leggermente nel tempo. © <span id="year"></span> Grazie al Cactus.</p>
 </footer>
-
-<!-- CARRELLO -->
-<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
-<aside class="drawer" id="cart-drawer" aria-label="Carrello" aria-hidden="true">
-  <div class="drawer-head">
-    <h2>Il tuo carrello</h2>
-    <button type="button" class="drawer-close" id="cart-close" aria-label="Chiudi il carrello">×</button>
-  </div>
-
-  <div class="drawer-body">
-    <div id="cart-empty" class="cart-empty">
-      <p>Il carrello è vuoto.</p>
-      <p class="muted small">Aggiungi un pezzo disponibile o componine uno su misura.</p>
-    </div>
-
-    <ul class="cart-list" id="cart-list"></ul>
-
-    <form class="checkout" id="checkout" hidden>
-      <h3>Consegna</h3>
-      <div class="options options-col" id="opt-consegna"></div>
-
-      <h3>I tuoi dati</h3>
-      <label><span>Nome e cognome</span><input type="text" id="co-nome" required autocomplete="name"></label>
-      <label><span>Telefono</span><input type="tel" id="co-tel" required autocomplete="tel" placeholder="Per confermarti l'ordine"></label>
-      <label id="co-indirizzo-wrap" hidden><span>Indirizzo di spedizione</span><textarea id="co-indirizzo" rows="2" autocomplete="street-address" placeholder="Via, numero, CAP, città"></textarea></label>
-      <label><span>Note <small>(facoltative)</small></span><textarea id="co-note" rows="2" placeholder="Es. è un regalo, vorrei riceverlo entro il…"></textarea></label>
-
-      <dl class="totals">
-        <div><dt>Pezzi</dt><dd id="tot-items">€ 0</dd></div>
-        <div><dt>Consegna</dt><dd id="tot-ship">€ 0</dd></div>
-        <div class="grand"><dt>Totale</dt><dd id="tot-grand">€ 0</dd></div>
-      </dl>
-
-      <p class="form-note">L'ordine ti si apre come messaggio già scritto. Lo invii tu, noi rispondiamo con conferma, disponibilità e modalità di pagamento. Nessun addebito ora.</p>
-
-      <div class="checkout-actions">
-        <button type="submit" class="btn btn-primary btn-wa" data-channel="whatsapp">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
-          Invia ordine su WhatsApp
-        </button>
-        <button type="button" class="btn btn-ghost" data-channel="email">Invia via email</button>
-      </div>
-      <button type="button" class="link-btn" id="cart-clear">Svuota il carrello</button>
-    </form>
-  </div>
-</aside>
-
-<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" hidden>

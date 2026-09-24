@@ -1,11 +1,10 @@
 /* ==========================================================
    Grazie al Cactus · catalogo
-   Qui modifichi i pezzi disponibili e le opzioni su misura.
+   Qui aggiungi, togli o segni come venduti i pezzi.
    I PREZZI SONO SEGNAPOSTO: sostituiscili con quelli reali.
+   Se non vuoi mostrare i prezzi, togli la riga "price".
    ========================================================== */
 
-// Pezzi già creati. Ogni pezzo è unico: quando lo vendi, metti sold: true
-// (resta visibile con l'etichetta "Venduto") oppure cancella la riga.
 const PRODOTTI = [
   {
     id: "brilla-sempre",
@@ -13,18 +12,8 @@ const PRODOTTI = [
     tag: "Con dedica",
     price: 22,
     img: "img/brilla-sempre",
-    alt: "Due latte decorate: una dorata con un cactus colonnare e una blu con stelle argentate e la scritta Brilla sempre",
+    alt: "Latta blu con stelle argentate e la scritta Brilla sempre, accanto a una latta dorata con cactus colonnare",
     desc: "Latta blu notte con stelle in rilievo e scritta a mano, con cactus colonnare. Altezza circa 10 cm.",
-    sold: false,
-  },
-  {
-    id: "oro-grezzo",
-    name: "Oro grezzo",
-    tag: "Effetto pietra",
-    price: 20,
-    img: "img/brilla-sempre",
-    alt: "Latta dorata con finitura effetto pietra e un cactus colonnare",
-    desc: "Latta piccola con finitura oro e rilievi effetto roccia, con due cactus colonnari. Altezza circa 10 cm.",
     sold: false,
   },
   {
@@ -67,32 +56,4 @@ const PRODOTTI = [
     desc: "Due barattoli in vetro con illustrazioni gotiche e finitura invecchiata. Venduti in coppia.",
     sold: false,
   },
-];
-
-// Opzioni del configuratore su misura. Il prezzo finale è
-// base + decorazione + pianta, per la quantità scelta.
-const SU_MISURA = {
-  contenitori: [
-    { id: "vetro", label: "Barattolo di vetro", price: 18, note: "circa 12–14 cm" },
-    { id: "latta-s", label: "Latta piccola", price: 20, note: "circa 10 cm" },
-    { id: "latta-l", label: "Latta grande", price: 26, note: "circa 15 cm, più piante" },
-  ],
-  decorazioni: [
-    { id: "dipinto", label: "Dipinto a mano", price: 0 },
-    { id: "decoupage", label: "Découpage con immagine", price: 4 },
-    { id: "scritta", label: "Dipinto con scritta o dedica in rilievo", price: 5 },
-    { id: "decoupage-scritta", label: "Découpage + dedica", price: 8 },
-  ],
-  piante: [
-    { id: "cactus", label: "Cactus", price: 0 },
-    { id: "succulenta", label: "Succulenta a foglia", price: 0 },
-    { id: "mix", label: "Mix di più piante", price: 3 },
-    { id: "libera", label: "Scegliete voi", price: 0 },
-  ],
-};
-
-// Consegna
-const CONSEGNA = [
-  { id: "ritiro", label: "Ritiro a mano (gratis)", price: 0 },
-  { id: "spedizione", label: "Spedizione in Italia", price: 7.9 },
 ];
