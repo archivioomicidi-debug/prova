@@ -19,33 +19,31 @@ const waLink = (text) => `https://wa.me/${CONTATTI.whatsapp}?text=${encodeURICom
 
 /* ---------- Vetrina ---------- */
 function renderProducts() {
-  const grid = $("#product-grid");
-  grid.innerHTML = PRODOTTI.map((p) => {
+  const list = $("#product-grid");
+  list.innerHTML = PRODOTTI.map((p, i) => {
     const msg = `Ciao Grazie al Cactus! Vorrei ordinare "${p.name}"${p.price ? ` (${eur(p.price)})` : ""}. È ancora disponibile?`;
     const action = p.sold
-      ? `<span class="sold-label">Venduto</span>`
-      : `<a class="btn btn-wa btn-sm" href="${waLink(msg)}" target="_blank" rel="noopener">${WA_ICON} Ordina su WhatsApp</a>`;
+      ? `<span class="sold">Venduto</span>`
+      : `<a class="btn" href="${waLink(msg)}" target="_blank" rel="noopener">Ordina su WhatsApp ↗</a>`;
     return `
-      <article class="card${p.sold ? " is-sold" : ""}" data-name="${esc(p.name)}">
-        <button class="card-media" type="button" data-full="${p.img}.jpg" aria-label="Ingrandisci: ${esc(p.name)}">
+      <article class="piece${p.sold ? " is-sold" : ""}" data-name="${esc(p.name)}">
+        <button class="piece-media" type="button" data-full="${p.img}.jpg" aria-label="Ingrandisci: ${esc(p.name)}">
           <img src="${p.img}-sm.jpg" alt="${esc(p.alt)}" loading="lazy" width="600" height="800">
-          ${p.sold ? `<span class="sold-badge">Venduto</span>` : ""}
         </button>
-        <div class="card-body">
-          <span class="tag">${esc(p.tag)}</span>
+        <div class="piece-body">
+          <span class="piece-n">${String(i + 1).padStart(2, "0")}</span>
+          <span class="piece-tag">${esc(p.tag)}</span>
           <h3>${esc(p.name)}</h3>
           <p>${esc(p.desc)}</p>
-          <div class="card-foot">
-            ${p.price ? `<span class="price">${eur(p.price)}</span>` : `<span class="price muted small">Prezzo su richiesta</span>`}
+          <div class="piece-foot">
+            <span class="piece-price">${p.price ? eur(p.price) : "Prezzo su richiesta"}</span>
             ${action}
           </div>
         </div>
       </article>`;
   }).join("");
-  bindLightbox(grid);
+  bindLightbox(list);
 }
-
-const WA_ICON = `<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>`;
 
 /* ---------- Su misura ---------- */
 function initCustomForm() {
@@ -74,11 +72,11 @@ function initCustomForm() {
 
 /* ---------- Lightbox ---------- */
 function bindLightbox(root) {
-  root.querySelectorAll(".card-media").forEach((btn) => {
+  root.querySelectorAll(".piece-media").forEach((btn) => {
     btn.addEventListener("click", () => {
       $("#lightbox-img").src = btn.dataset.full;
       $("#lightbox-img").alt = btn.querySelector("img").alt;
-      $("#lightbox-caption").textContent = btn.closest(".card").dataset.name || "";
+      $("#lightbox-caption").textContent = btn.closest(".piece").dataset.name || "";
       $("#lightbox").hidden = false;
       document.body.style.overflow = "hidden";
     });
@@ -97,6 +95,8 @@ function initLightbox() {
 document.addEventListener("DOMContentLoaded", () => {
   $("#year").textContent = new Date().getFullYear();
 
+  const emailLabel = $("#email-label");
+  if (emailLabel) emailLabel.textContent = CONTATTI.email;
   document.querySelectorAll("[data-social]").forEach((a) => {
     const k = a.dataset.social;
     if (k === "whatsapp") a.href = waLink("Ciao Grazie al Cactus! Avrei una domanda.");
