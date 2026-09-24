@@ -203,14 +203,47 @@ main > section { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw
 .form-note { font-size: .85rem; color: var(--ink-soft); margin: 0; }
 
 /* ---------- Come nascono ---------- */
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-.steps li { position: relative; padding-top: .5rem; }
-.step-num {
-  display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
-  background: var(--coral-btn); color: var(--white); font-weight: 800; font-size: 1.1rem;
-  margin-bottom: .8rem; box-shadow: 0 6px 16px rgba(232, 70, 47, .3);
+.process { background: var(--paper-2); border-radius: 32px; }
+.timeline {
+  list-style: none; margin: 0; padding: 0; position: relative;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
 }
-.steps p { color: var(--ink-soft); font-size: .95rem; margin: 0; }
+.timeline::before {
+  /* il filo che unisce le tappe */
+  content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 36px; height: 2px;
+  background: repeating-linear-gradient(90deg, var(--green) 0 8px, transparent 8px 16px);
+}
+.step { position: relative; text-align: center; padding: 0 .4rem; }
+.step-icon {
+  position: relative; width: 72px; height: 72px; margin: 0 auto 1.1rem; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--green); display: grid; place-items: center;
+  box-shadow: var(--shadow);
+}
+.step-icon svg { width: 40px; height: 40px; fill: none; stroke: var(--green-dark); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.step-n {
+  position: absolute; top: -6px; right: -6px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--coral-btn); color: var(--white); font-size: .8rem; font-weight: 800;
+  display: grid; place-items: center; border: 2px solid var(--paper-2);
+}
+.step h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.step p { color: var(--ink-soft); font-size: .95rem; margin: 0 0 .7rem; }
+.step-note {
+  display: inline-block; font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--green-dark); background: var(--green-soft); padding: .3rem .7rem; border-radius: 999px;
+}
+@media (max-width: 900px) {
+  .timeline { grid-template-columns: 1fr; gap: 0; }
+  .timeline::before { display: none; }
+  .step:not(:last-child)::before {
+    content: ""; position: absolute; left: 35px; top: 72px; bottom: 0; width: 2px;
+    background: repeating-linear-gradient(180deg, var(--green) 0 8px, transparent 8px 16px);
+  }
+  .step { text-align: left; display: grid; grid-template-columns: 72px 1fr; column-gap: 1.2rem; padding: 0 0 2rem; }
+  .step-icon { margin: 0; grid-row: 1 / span 4; }
+  .step h3, .step p, .step-note { grid-column: 2; }
+  .step h3 { margin-top: .2rem; }
+  .step:last-child { padding-bottom: 0; }
+}
 
 /* ---------- Cura ---------- */
 .care { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
