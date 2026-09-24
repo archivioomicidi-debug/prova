@@ -178,6 +178,9 @@ function initLightbox() {
 /* ---------- Avvio ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   $("#year").textContent = new Date().getFullYear();
+  const avail = PRODOTTI.filter((p) => !p.sold).length;
+  const cnt = $("#count-available");
+  if (cnt) { cnt.textContent = avail; cnt.parentElement.lastChild.textContent = avail === 1 ? " pezzo disponibile ora" : " pezzi disponibili ora"; }
   $("#phone-label").textContent = CONTATTI.whatsappLabel;
   $("#email-label").textContent = CONTATTI.email;
   $("#instagram-label").textContent = CONTATTI.instagramLabel;
