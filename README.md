@@ -8,7 +8,8 @@ Sito statico (HTML, CSS e JavaScript senza dipendenze né server). Presenta i pe
 - **I pezzi**: le foto dei pezzi disponibili, con prezzo e pulsante "Ordina su WhatsApp". Ogni pezzo è unico; quando è venduto resta visibile con l'etichetta "Venduto".
 - **Su misura**: un modulo breve (contenitore, idea, dedica) che apre WhatsApp o l'email con la richiesta già scritta.
 - **Come nascono** e **Cura**: contenuto che dà fiducia e riduce le domande.
-- **Contatti**: WhatsApp, Instagram, Facebook, email.
+- **Domande frequenti**: ordine, pagamento, spedizione, tempi, regali.
+- **Contatti**: WhatsApp, email, Instagram, Facebook, con numero e indirizzo in chiaro.
 
 Nessun carrello, nessun pagamento online, nessun dato salvato: la vendita si chiude in chat.
 
@@ -19,6 +20,8 @@ Nessun carrello, nessun pagamento online, nessun dato salvato: la vendita si chi
 - `script.js` – contatti (WhatsApp, email, social), pulsanti d'ordine, modulo su misura, ingrandimento foto.
 - `style.css` – stile.
 - `img/` – foto (`*-sm.jpg` per le card, versione grande per l'ingrandimento).
+- `fonts/` – caratteri ospitati sul sito (nessuna richiesta a Google Fonts).
+- `favicon.svg`, `robots.txt`.
 
 ## Gestione quotidiana
 
@@ -28,8 +31,10 @@ Nessun carrello, nessun pagamento online, nessun dato salvato: la vendita si chi
 
 ## Prima di pubblicare
 
-1. In `script.js` inserisci numero WhatsApp (formato internazionale senza `+`), email e link social reali.
+1. In `script.js` controlla numero WhatsApp, email e link social.
 2. In `products.js` sostituisci i prezzi segnaposto.
+3. In `index.html` sostituisci `https://www.grazie-al-cactus.it/` con il dominio vero (canonical, Open Graph, dati strutturati).
+4. Verifica le risposte nelle Domande frequenti (pagamenti accettati, tempi, spedizione).
 
 ## Pubblicazione
 
