@@ -6,7 +6,7 @@
 
 const CONTATTI = {
   // Numero WhatsApp in formato internazionale, senza + né spazi. Es: "393331234567"
-  whatsapp: "39XXXXXXXXXX",
+  whatsapp: "393289871514",
   email: "info@grazie-al-cactus.it",
   instagram: "https://www.instagram.com/grazie_al_cactus",
   facebook: "https://www.facebook.com/grazie.al.cactus",
