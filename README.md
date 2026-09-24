@@ -17,7 +17,7 @@ Nessun carrello, nessun pagamento online, nessun dato salvato: la vendita si chi
 - `index.html` – la pagina.
 - `products.js` – **catalogo e prezzi**. È l'unico file da toccare per aggiornare i pezzi.
 - `script.js` – contatti (WhatsApp, email, social), pulsanti d'ordine, modulo su misura, ingrandimento foto.
-- `style.css` – stile: tema scuro editoriale, palette e caratteri definiti in cima al file.
+- `style.css` – stile.
 - `img/` – foto (`*-sm.jpg` per le card, versione grande per l'ingrandimento).
 
 ## Gestione quotidiana

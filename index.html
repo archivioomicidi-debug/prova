@@ -4,150 +4,210 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grazie al Cactus · Piante grasse in barattoli decorati a mano</title>
-  <meta name="description" content="Grazie al Cactus: cactus e piante grasse in barattoli e latte recuperate, decorate a mano una per una. Pezzi unici, ordini su WhatsApp.">
+  <meta name="description" content="Grazie al Cactus: cactus e piante grasse in barattoli e latte recuperate, decorate a mano una per una. Compra un pezzo disponibile o richiedine uno su misura.">
   <meta property="og:title" content="Grazie al Cactus">
   <meta property="og:description" content="Cactus e piante grasse in barattoli decorati a mano. Pezzi unici o su misura.">
-  <meta property="og:image" content="img/farfalla-oro.jpg">
+  <meta property="og:image" content="img/barattolo-verde.jpg">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌵%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<header class="top">
-  <a href="#top" class="wordmark">Grazie <em>al</em> Cactus</a>
-  <nav class="menu" aria-label="Navigazione principale">
-    <a href="#pezzi">Pezzi</a>
+<header class="site-header">
+  <a href="#top" class="brand">
+    <span class="brand-icon" aria-hidden="true">🌵</span>
+    <span class="brand-name">Grazie <em>al Cactus</em></span>
+  </a>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a href="#disponibili">I pezzi</a>
     <a href="#su-misura">Su misura</a>
-    <a href="#storia">Storia</a>
-    <a href="#contatti">Contatti</a>
+    <a href="#come-nascono">Come nascono</a>
+    <a href="#cura">Cura</a>
+    <a href="#" class="nav-cta" data-social="whatsapp" target="_blank" rel="noopener">Scrivici</a>
   </nav>
-  <a href="#" class="top-cta" data-social="whatsapp" target="_blank" rel="noopener">WhatsApp ↗</a>
 </header>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-copy">
-      <p class="kicker">Latte e barattoli salvati dal cestino, decorati a mano</p>
-      <h1>Un cactus.<br>Un barattolo.<br><em>Una storia.</em></h1>
-      <p class="hero-sub">Ogni pezzo è uno solo. Scegli il tuo, scrivici su WhatsApp e ti rispondiamo con disponibilità e consegna.</p>
-      <div class="hero-links">
-        <a href="#pezzi" class="link-big">Vedi i pezzi <span aria-hidden="true">↓</span></a>
-        <a href="#su-misura" class="link-big link-dim">Chiedine uno su misura</a>
+    <div class="hero-text">
+      <p class="eyebrow">Fatti a mano · Pezzi unici · Materiali recuperati</p>
+      <h1>Piante grasse che raccontano una storia.</h1>
+      <p class="lead">
+        Ogni cactus vive in un barattolo o in una latta salvata dal cestino e decorata
+        a mano. Scegli il pezzo che ti piace e scrivici su WhatsApp: ti confermiamo
+        disponibilità e consegna in pochi minuti.
+      </p>
+      <div class="hero-actions">
+        <a href="#disponibili" class="btn btn-primary">Guarda i pezzi</a>
+        <a href="#su-misura" class="btn btn-ghost">Chiedi un pezzo su misura</a>
       </div>
     </div>
-    <figure class="hero-media">
-      <img src="img/farfalla-oro.jpg" alt="Latta rosa con farfalla dorata in rilievo e una sansevieria intrecciata" width="833" height="1600" fetchpriority="high">
+    <figure class="hero-image">
+      <img src="img/barattolo-verde.jpg" alt="Cactus in un barattolo di vetro dipinto di verde con il logo Grazie al Cactus" width="1200" height="1600" fetchpriority="high">
     </figure>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Pezzi unici</span><span>·</span><span>Fatti a mano</span><span>·</span><span>Recupero creativo</span><span>·</span><span>Piante vere</span><span>·</span><span>Ordini su WhatsApp</span><span>·</span>
-      <span>Pezzi unici</span><span>·</span><span>Fatti a mano</span><span>·</span><span>Recupero creativo</span><span>·</span><span>Piante vere</span><span>·</span><span>Ordini su WhatsApp</span><span>·</span>
+  <!-- VALORI -->
+  <section class="values" aria-label="Perché sceglierci">
+    <div class="value">
+      <span class="value-icon" aria-hidden="true">♻️</span>
+      <h3>Recupero creativo</h3>
+      <p>Latte e barattoli che avrebbero finito nella raccolta differenziata diventano vasi.</p>
     </div>
-  </div>
+    <div class="value">
+      <span class="value-icon" aria-hidden="true">🎨</span>
+      <h3>Decorati a mano</h3>
+      <p>Pittura, découpage, rilievi e scritte: ogni vaso è fatto uno alla volta, senza stampi.</p>
+    </div>
+    <div class="value">
+      <span class="value-icon" aria-hidden="true">🌵</span>
+      <h3>Piante vere e facili</h3>
+      <p>Cactus e succulente che chiedono pochissima acqua e tanta luce. Perfetti anche senza pollice verde.</p>
+    </div>
+    <div class="value">
+      <span class="value-icon" aria-hidden="true">🎁</span>
+      <h3>Un regalo che resta</h3>
+      <p>Con il cartellino Grazie al Cactus e, se vuoi, una dedica scritta a mano sul vaso.</p>
+    </div>
+  </section>
 
-  <!-- PEZZI -->
-  <section id="pezzi" class="pieces">
-    <header class="section-head">
-      <span class="index">01</span>
-      <h2>I pezzi</h2>
-      <p>Quello che vedi in foto è esattamente quello che ricevi. Clicca la foto per ingrandirla. Il pulsante apre WhatsApp con il messaggio già scritto.</p>
-    </header>
-    <div class="pieces-list" id="product-grid"></div>
+  <!-- DISPONIBILI -->
+  <section id="disponibili" class="collection">
+    <div class="section-head">
+      <p class="eyebrow">I pezzi</p>
+      <h2>Pronti per partire. Ogni pezzo è uno solo.</h2>
+      <p class="muted">Quello che vedi in foto è esattamente quello che ricevi. Clicca sulla foto per ingrandirla. Per ordinare premi il pulsante: si apre WhatsApp con il messaggio già scritto, tu lo invii e noi ti rispondiamo.</p>
+    </div>
+    <div class="grid" id="product-grid"></div>
   </section>
 
   <!-- SU MISURA -->
   <section id="su-misura" class="custom">
-    <header class="section-head">
-      <span class="index">02</span>
-      <h2>Su misura</h2>
-      <p>Un colore, una frase, un tema, una persona. Raccontaci l'idea e ti rispondiamo con proposta, prezzo e tempi. Prima della consegna ti mandiamo le foto.</p>
-    </header>
+    <div class="custom-intro">
+      <p class="eyebrow">Su misura</p>
+      <h2>Il tuo, da zero.</h2>
+      <p class="muted">Un colore, una frase, un tema, una persona. Raccontaci l'idea e ti rispondiamo con una proposta, il prezzo e i tempi. Prima della consegna ti mandiamo le foto e, se qualcosa non ti convince, lo sistemiamo.</p>
+      <ul class="custom-points">
+        <li><strong>Tempi.</strong> 7–10 giorni dalla conferma.</li>
+        <li><strong>Prezzo.</strong> Da 18 € per un barattolo in vetro, da 20 € per una latta. Dipende da decorazione e pianta.</li>
+        <li><strong>Immagini tue.</strong> Per il découpage puoi mandarci una foto o un disegno direttamente in chat.</li>
+      </ul>
+    </div>
 
     <form class="custom-form" id="custom-form">
-      <fieldset class="chips">
-        <legend>Contenitore</legend>
-        <label class="chip"><input type="radio" name="tipo" value="Barattolo di vetro" checked><span>Barattolo di vetro</span></label>
-        <label class="chip"><input type="radio" name="tipo" value="Latta piccola"><span>Latta piccola</span></label>
-        <label class="chip"><input type="radio" name="tipo" value="Latta grande"><span>Latta grande</span></label>
-        <label class="chip"><input type="radio" name="tipo" value="Consigliatemi voi"><span>Consigliatemi voi</span></label>
+      <fieldset>
+        <legend>Che contenitore preferisci?</legend>
+        <div class="options">
+          <label class="option"><input type="radio" name="tipo" value="Barattolo di vetro" checked><span class="option-box"><span class="option-label">Barattolo di vetro</span><span class="option-note">circa 12–14 cm</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Latta piccola"><span class="option-box"><span class="option-label">Latta piccola</span><span class="option-note">circa 10 cm</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Latta grande"><span class="option-box"><span class="option-label">Latta grande</span><span class="option-note">circa 15 cm, più piante</span></span></label>
+          <label class="option"><input type="radio" name="tipo" value="Consigliatemi voi"><span class="option-box"><span class="option-label">Consigliatemi voi</span><span class="option-note">in base all'idea</span></span></label>
+        </div>
       </fieldset>
-      <label class="field">
-        <span>L'idea</span>
-        <textarea id="cf-idea" rows="3" required placeholder="Per chi è, che colori, che atmosfera…"></textarea>
+      <label>
+        <span>Raccontaci l'idea</span>
+        <textarea id="cf-idea" rows="4" required placeholder="Es. È per mia sorella che ama le stelle: vorrei qualcosa di blu notte con una frase, e una pianta facile da tenere."></textarea>
       </label>
-      <label class="field">
-        <span>Dedica <small>facoltativa</small></span>
-        <input type="text" id="cf-dedica" maxlength="40" placeholder="Brilla sempre!">
+      <label>
+        <span>Dedica o scritta <small>(facoltativa)</small></span>
+        <input type="text" id="cf-dedica" maxlength="40" placeholder="Es. Brilla sempre!">
       </label>
       <div class="custom-actions">
-        <button type="submit" class="btn">Invia su WhatsApp ↗</button>
-        <button type="button" class="btn btn-outline" data-channel="email">Via email</button>
+        <button type="submit" class="btn btn-wa">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
+          Invia la richiesta su WhatsApp
+        </button>
+        <button type="button" class="btn btn-ghost" data-channel="email">Preferisco l'email</button>
       </div>
-      <p class="fine">Da 18 € per un barattolo in vetro, da 20 € per una latta. 7–10 giorni dalla conferma. Il messaggio si apre nella tua app: lo invii tu.</p>
+      <p class="form-note">Il messaggio si apre nella tua app già scritto: lo controlli e lo invii tu. Questo sito non salva nessun dato.</p>
     </form>
   </section>
 
-  <!-- STORIA / PROCESSO -->
-  <section id="storia" class="story">
-    <header class="section-head">
-      <span class="index">03</span>
-      <h2>Dal cestino allo scaffale</h2>
-    </header>
+  <!-- COME NASCONO -->
+  <section id="come-nascono" class="process">
+    <div class="section-head">
+      <p class="eyebrow">Come nascono</p>
+      <h2>Dal cestino allo scaffale, in quattro passaggi.</h2>
+    </div>
     <ol class="steps">
-      <li><span class="num">1</span><h3>Recupero</h3><p>Latte di pelati, barattoli di vetro, coperchi. Puliti, levigati, preparati.</p></li>
-      <li><span class="num">2</span><h3>Decorazione</h3><p>Acrilico, découpage con carta di riso, rilievi in pasta modellabile, scritte a mano. Poi una protezione contro l'acqua.</p></li>
-      <li><span class="num">3</span><h3>Impianto</h3><p>Strato drenante, terriccio per cactacee, ghiaia. La pianta è scelta per il vaso, non il contrario.</p></li>
-      <li><span class="num">4</span><h3>Consegna</h3><p>Con il cartellino e le istruzioni di cura. A mano o con spedizione protetta in tutta Italia.</p></li>
+      <li>
+        <span class="step-num">1</span>
+        <h3>Recupero</h3>
+        <p>Latte di pelati, barattoli di vetro, coperchi. Li puliamo, li leviamo e li prepariamo.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>Decorazione</h3>
+        <p>Pittura acrilica, découpage con carta di riso, rilievi in pasta modellabile, scritte a mano. Poi una protezione per resistere all'acqua.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>Impianto</h3>
+        <p>Strato drenante, terriccio per cactacee e ghiaia in superficie. La pianta è scelta per il vaso, non il contrario.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <h3>Consegna</h3>
+        <p>Con il cartellino Grazie al Cactus e le istruzioni di cura. A mano o con spedizione protetta.</p>
+      </li>
     </ol>
-    <figure class="story-media">
-      <img src="img/blu-porcellana.jpg" alt="Latta con découpage blu e bianco e un'opuntia, tra altri vasi decorati" loading="lazy" width="1200" height="1600">
-      <figcaption>Blu porcellana, tra i pezzi sullo scaffale del laboratorio.</figcaption>
-    </figure>
   </section>
 
   <!-- CURA -->
-  <section class="care">
-    <header class="section-head">
-      <span class="index">04</span>
-      <h2>Tre regole, e vive per anni</h2>
-    </header>
-    <div class="rules">
-      <div><h3>Luce</h3><p>Vicino a una finestra luminosa. Sole diretto per i cactus, filtrato per le succulente a foglia.</p></div>
-      <div><h3>Acqua, poca</h3><p>Ogni due o tre settimane in estate, quasi mai in inverno. Se hai dubbi, aspetta.</p></div>
-      <div><h3>Niente ristagno</h3><p>Lo strato drenante c'è già. Bagna poco e non lasciare mai acqua ferma.</p></div>
+  <section id="cura" class="care">
+    <div class="care-text">
+      <p class="eyebrow">Cura</p>
+      <h2>Tre regole e vive per anni.</h2>
+      <ul class="care-list">
+        <li><strong>Luce.</strong> Vicino a una finestra luminosa. Il sole diretto va bene per i cactus, meglio filtrato per le succulente a foglia.</li>
+        <li><strong>Acqua, poca.</strong> Ogni 2–3 settimane in estate, quasi mai in inverno. Se hai dubbi, aspetta.</li>
+        <li><strong>Niente ristagno.</strong> I nostri vasi hanno lo strato drenante sul fondo: bagna poco e non lasciare mai acqua ferma.</li>
+      </ul>
     </div>
+    <figure class="care-image">
+      <img src="img/rose-antiche.jpg" alt="Dettaglio del vaso Rose antiche con haworthia e ghiaia in superficie" loading="lazy" width="1200" height="1600">
+    </figure>
   </section>
 
   <!-- CONTATTI -->
   <section id="contatti" class="contact">
-    <h2>Scrivici.<br><em>Rispondiamo noi,</em><br>non un modulo.</h2>
-    <ul class="contact-list">
-      <li><a href="#" data-social="whatsapp" target="_blank" rel="noopener">WhatsApp <span>+39 328 987 1514</span></a></li>
-      <li><a href="#" data-social="instagram" target="_blank" rel="noopener">Instagram <span>@grazie_al_cactus</span></a></li>
-      <li><a href="#" data-social="facebook" target="_blank" rel="noopener">Facebook <span>Grazie al Cactus</span></a></li>
-      <li><a href="#" data-social="email">Email <span id="email-label"></span></a></li>
-    </ul>
+    <div class="section-head">
+      <p class="eyebrow">Contatti</p>
+      <h2>Scrivici: rispondiamo noi, non un modulo.</h2>
+      <p class="muted">Per un ordine, un dubbio, o per vedere altri pezzi che non sono ancora sul sito. Consegna a mano oppure spedizione in tutta Italia.</p>
+    </div>
+    <div class="social">
+      <a class="social-link" data-social="whatsapp" href="#" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
+        WhatsApp
+      </a>
+      <a class="social-link" data-social="instagram" href="#" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+        Instagram
+      </a>
+      <a class="social-link" data-social="facebook" href="#" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3Z"/></svg>
+        Facebook
+      </a>
+      <a class="social-link" data-social="email" href="#">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>
+        Email
+      </a>
+    </div>
   </section>
 
 </main>
 
-<footer class="foot">
-  <p class="foot-mark">Grazie al Cactus</p>
-  <p class="fine">Piante grasse in vasi recuperati e decorati a mano. Le foto mostrano l'esemplare reale; la pianta può cambiare leggermente nel tempo. © <span id="year"></span></p>
+<footer class="site-footer">
+  <p><strong>Grazie al Cactus</strong> · Piante grasse in vasi recuperati e decorati a mano.</p>
+  <p class="muted small">Pezzi unici: le foto mostrano l'esemplare reale, la pianta può variare leggermente nel tempo. © <span id="year"></span> Grazie al Cactus.</p>
 </footer>
-
-<a href="#" class="fab" data-social="whatsapp" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
-  <svg aria-hidden="true" viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.7-.1 2.6 2.6 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>
-</a>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" hidden>
