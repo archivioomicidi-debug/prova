@@ -246,12 +246,25 @@ main > section { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw
 }
 
 /* ---------- Cura ---------- */
-.care { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.care-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 1rem; }
-.care-list li { background: var(--white); border-left: 5px solid var(--green); border-radius: 12px; padding: 1rem 1.2rem; box-shadow: var(--shadow); }
-.care-image { margin: 0; }
-.care-image img { border-radius: 28px; box-shadow: var(--shadow-lg); aspect-ratio: 4 / 5; object-fit: cover; }
-@media (max-width: 800px) { .care { grid-template-columns: 1fr; } .care-image { max-width: 420px; } }
+.rules { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
+.rule {
+  background: var(--white); border-radius: var(--radius); padding: 1.6rem 1.5rem 1.4rem;
+  box-shadow: var(--shadow); display: flex; flex-direction: column; border-top: 6px solid var(--rule-color);
+}
+.rule-sun { --rule-color: var(--sun); --rule-soft: #fff3d6; }
+.rule-water { --rule-color: #5aa9e6; --rule-soft: #e3f1fc; }
+.rule-drain { --rule-color: var(--coral); --rule-soft: #fde5e0; }
+.rule-icon {
+  width: 64px; height: 64px; border-radius: 50%; background: var(--rule-soft);
+  display: grid; place-items: center; margin-bottom: 1rem;
+}
+.rule-icon svg { width: 36px; height: 36px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rule h3 { font-size: 1.35rem; margin-bottom: .4rem; }
+.rule p { color: var(--ink-soft); font-size: .95rem; margin: 0 0 1.1rem; flex: 1; }
+.rule-facts { margin: 0; display: grid; gap: .5rem; border-top: 1px solid rgba(43, 42, 39, .1); padding-top: 1rem; }
+.rule-facts div { display: grid; grid-template-columns: 5.2rem 1fr; gap: .6rem; font-size: .88rem; align-items: baseline; }
+.rule-facts dt { font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; color: var(--rule-color); filter: brightness(.75); }
+.rule-facts dd { margin: 0; color: var(--ink); }
 
 /* ---------- Domande ---------- */
 .faq-list { max-width: 760px; display: grid; gap: .6rem; }
