@@ -73,16 +73,25 @@ function initCustomForm() {
   const form = $("#custom-form");
   const idea = $("#cf-idea");
   const err = $("#cf-idea-err");
+  const summary = $("#wizard-summary");
+  const picked = (name) => form.querySelector(`input[name="${name}"]:checked`)?.value || "";
   const build = () => {
-    const tipo = form.querySelector('input[name="tipo"]:checked')?.value || "";
     const dedica = $("#cf-dedica").value.trim();
+    const occasione = $("#cf-occasione").value.trim();
     const lines = ["Ciao Grazie al Cactus! Vorrei un pezzo su misura."];
-    if (tipo) lines.push(`Contenitore: ${tipo}`);
+    lines.push(`Base: ${picked("tipo")}`);
+    lines.push(`Stile: ${picked("stile")}`);
     lines.push(`Idea: ${idea.value.trim()}`);
     if (dedica) lines.push(`Dedica: "${dedica}"`);
+    if (occasione) lines.push(`Occasione: ${occasione}`);
     lines.push("Mi dite prezzo e tempi?");
     return lines.join("\n");
   };
+  const updateSummary = () => {
+    summary.textContent = `La tua scelta: ${picked("tipo").toLowerCase()}, ${picked("stile").toLowerCase()}.`;
+  };
+  form.addEventListener("change", updateSummary);
+  updateSummary();
   const valid = () => {
     const ok = idea.value.trim().length >= 3;
     err.hidden = ok;
