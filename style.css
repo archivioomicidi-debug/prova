@@ -363,15 +363,50 @@ main > section { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw
 @media (max-width: 520px) { .faq-a { padding-left: 1.1rem; } }
 
 /* ---------- Contatti ---------- */
-.contact-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-.contact-list a {
-  display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--ink);
-  background: var(--white); border-radius: 14px; padding: 1rem 1.1rem; box-shadow: var(--shadow); min-height: 64px;
+.contact {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4rem); align-items: start;
+  background: var(--green-dark); color: var(--white); border-radius: 32px;
+  background-image: radial-gradient(circle at 85% 15%, rgba(247, 183, 51, .28), transparent 40%), radial-gradient(circle at 10% 90%, rgba(214, 60, 143, .25), transparent 45%);
 }
-.contact-list a:hover { color: var(--coral-dark); }
-.contact-list svg { flex: none; }
-.contact-list span { display: grid; line-height: 1.3; }
-.contact-list small { color: var(--ink-soft); font-size: .85rem; }
+.contact h2 { color: var(--white); }
+.eyebrow-light { color: var(--sun); }
+.contact-lead { color: rgba(255, 255, 255, .8); font-size: 1.05rem; max-width: 46ch; }
+
+.wa-card {
+  display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 1rem;
+  background: var(--white); color: var(--ink); text-decoration: none; border-radius: 20px;
+  padding: 1.1rem 1.3rem; box-shadow: var(--shadow-lg); margin-top: 1.4rem;
+  transition: transform .15s ease;
+}
+.wa-card:hover { transform: translateY(-2px); }
+.wa-card-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--wa); color: var(--wa-ink); display: grid; place-items: center; }
+.wa-card-text { display: grid; line-height: 1.3; }
+.wa-card-text strong { font-size: 1.05rem; }
+.wa-card-number { font-size: 1.35rem; font-weight: 800; color: var(--green-dark); letter-spacing: .01em; }
+.wa-card-note { font-size: .88rem; color: var(--ink-soft); }
+.wa-card-arrow { font-size: 1.6rem; color: var(--green-dark); }
+
+.contact-facts { list-style: none; margin: 1.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; }
+.contact-facts li { display: inline-flex; align-items: center; gap: .5rem; font-size: .93rem; color: rgba(255, 255, 255, .88); }
+.contact-facts svg { width: 22px; height: 22px; fill: none; stroke: var(--sun); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+.contact-side { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); border-radius: 24px; padding: 1.4rem; }
+.contact-side-title { text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 800; color: var(--sun); margin-bottom: .9rem; }
+.channels { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.channels a {
+  display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: .8rem;
+  text-decoration: none; color: var(--white); padding: .7rem .8rem; border-radius: 14px;
+  background: rgba(255, 255, 255, .06); transition: background .15s;
+}
+.channels a:hover { background: rgba(255, 255, 255, .16); }
+.ch-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(255, 255, 255, .14); display: grid; place-items: center; }
+.ch-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--white); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ch-text { display: grid; line-height: 1.3; }
+.ch-text small { color: rgba(255, 255, 255, .72); font-size: .85rem; }
+.ch-arrow { color: var(--sun); }
+.contact-side-note { margin: 1rem 0 0; font-size: .85rem; color: rgba(255, 255, 255, .7); }
+@media (max-width: 860px) { .contact { grid-template-columns: 1fr; border-radius: 24px; } }
+@media (max-width: 520px) { .wa-card { grid-template-columns: 48px 1fr; } .wa-card-arrow { display: none; } .wa-card-icon { width: 48px; height: 48px; } }
 
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid rgba(43, 42, 39, .08); padding: 2.5rem clamp(1rem, 4vw, 2rem) 6rem; max-width: var(--max); margin: 0 auto; }
