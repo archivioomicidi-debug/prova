@@ -409,15 +409,26 @@ main > section { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw
 @media (max-width: 520px) { .wa-card { grid-template-columns: 48px 1fr; } .wa-card-arrow { display: none; } .wa-card-icon { width: 48px; height: 48px; } }
 
 /* ---------- Footer ---------- */
-.site-footer { border-top: 1px solid rgba(43, 42, 39, .08); padding: 2.5rem clamp(1rem, 4vw, 2rem) 6rem; max-width: var(--max); margin: 0 auto; }
-.footer-inner { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
-.footer-brand { font-family: "Pacifico", cursive; font-size: 1.5rem; color: var(--coral); margin-bottom: .4rem; }
-.footer-brand em { font-style: normal; color: var(--green-dark); }
-.footer-nav { display: grid; gap: .4rem; }
-.footer-nav a { text-decoration: none; color: var(--ink); font-weight: 700; font-size: .95rem; }
-.footer-nav a:hover { color: var(--coral-dark); }
-.legal { margin: 0; }
-@media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+.site-footer { border-top: 1px solid rgba(43, 42, 39, .1); background: var(--paper-2); padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) 6rem; }
+.footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.3fr .8fr 1.1fr; gap: 2.5rem; }
+.footer-tagline { margin: 1rem 0 1.2rem; color: var(--ink-soft); max-width: 34ch; font-size: .95rem; }
+.footer-social { list-style: none; margin: 0; padding: 0; display: flex; gap: .6rem; }
+.footer-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); box-shadow: var(--shadow); color: var(--green-dark); }
+.footer-social a:hover { background: var(--green-dark); color: var(--white); }
+.footer-social svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.footer-col { display: grid; gap: .5rem; align-content: start; }
+.footer-title { text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 800; color: var(--green-dark); margin: 0 0 .4rem; }
+.footer-col a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: .95rem; }
+.footer-col a:hover { color: var(--coral-dark); }
+.footer-line { display: flex; align-items: center; gap: .55rem; margin: 0; font-size: .95rem; }
+.footer-line svg { width: 20px; height: 20px; fill: none; stroke: var(--green); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.footer-line-static { color: var(--ink-soft); font-weight: 400; }
+.footer-bottom { max-width: var(--max); margin: 2.5rem auto 0; padding-top: 1.4rem; border-top: 1px solid rgba(43, 42, 39, .1); display: grid; grid-template-columns: 1fr auto; gap: .4rem 2rem; align-items: start; font-size: .82rem; color: var(--ink-soft); }
+.footer-bottom p { margin: 0; grid-column: 1; }
+.to-top { grid-column: 2; grid-row: 1 / span 2; align-self: center; text-decoration: none; font-weight: 800; color: var(--ink); background: var(--white); border-radius: 999px; padding: .5rem 1rem; box-shadow: var(--shadow); white-space: nowrap; }
+.to-top:hover { color: var(--coral-dark); }
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand-col { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { grid-template-columns: 1fr; } .footer-bottom p { grid-column: 1; } .to-top { grid-column: 1; grid-row: auto; justify-self: start; } }
 
 /* ---------- Pulsante WhatsApp fisso ---------- */
 .fab {

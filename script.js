@@ -193,6 +193,8 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#phone-label").textContent = CONTATTI.whatsappLabel;
   $("#email-label").textContent = CONTATTI.email;
   $("#instagram-label").textContent = CONTATTI.instagramLabel;
+  $("#footer-phone").textContent = CONTATTI.whatsappLabel;
+  $("#footer-email").textContent = CONTATTI.email;
 
   document.querySelectorAll("[data-social]").forEach((a) => {
     const k = a.dataset.social;
