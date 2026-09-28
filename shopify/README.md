@@ -59,3 +59,21 @@ Per il pulsante WhatsApp fisso installa un'app gratuita dallo store (cerca "What
 ## Nota
 
 Con l'accesso al negozio collegato, prodotti, collezione e pagine si possono creare direttamente da qui senza importazioni manuali.
+
+## Fatto via API il 28 settembre 2026
+
+Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
+
+- 9 prodotti attivi con foto, prezzo, SKU `GAC-*`, quantità 1, inventario tracciato, tag `LattaViva`.
+- Collezione automatica **Creazioni LattaViva** (`/collections/creazioni-lattaviva`), regola: tag = LattaViva.
+- Pagine: `/pages/lattaviva`, `/pages/su-misura`, `/pages/come-nascono`, `/pages/cura`, `/pages/domande-frequenti`.
+- Menu principale e menu footer aggiornati.
+- Tema **Grazie al Cactus** (copia di Horizon, non pubblicato, id 205997375831) con homepage completa
+  (`templates/index.json`) e impostazioni colori/caratteri (`config/settings_data.json`).
+
+## Da fare nell'admin (non possibile via API)
+
+1. Negozio online → Temi → **Grazie al Cactus** → Anteprima, poi **Pubblica**.
+2. Impostazioni → Generali → nome negozio "Grazie al Cactus".
+3. Impostazioni → Spedizione e consegna, Pagamenti, Informative, Piano.
+4. Personalizza → Intestazione: carica il logo; Piè di pagina: link social.
