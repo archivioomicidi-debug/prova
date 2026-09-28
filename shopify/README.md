@@ -68,10 +68,16 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
 - Collezione automatica **Creazioni LattaViva** (`/collections/creazioni-lattaviva`), regola: tag = LattaViva.
 - Pagine: `/pages/lattaviva`, `/pages/su-misura`, `/pages/come-nascono`, `/pages/cura`, `/pages/domande-frequenti`.
 - Menu principale e menu footer aggiornati.
-- Tema **Grazie al Cactus v2** (id 205997932887, non pubblicato): homepage identica al sito locale.
-  I file sono in `shopify/theme/`: `layout/gac.liquid`, `sections/gac-home.liquid`, `templates/index.json`,
-  `assets/gac.css.liquid`, `assets/gac.js`, più font e miniature caricati come asset `gac-*`.
+- Tema **Grazie al Cactus v2** (id 205997932887, non pubblicato): homepage identica al sito locale,
+  più pagina prodotto e carrello nello stesso stile.
+  I file sono in `shopify/theme/`: `layout/gac.liquid`, `sections/gac-home.liquid`, `sections/gac-product.liquid`,
+  `sections/gac-cart.liquid`, `snippets/gac-{header,footer,extras,card}.liquid`, `templates/{index,product,cart}.json`,
+  `assets/gac.css.liquid`, `assets/gac-pages.css`, `assets/gac.js`, più font e miniature caricati come asset `gac-*`.
   I pezzi vengono dalla collezione Creazioni LattaViva; "Aggiungi al carrello" usa il carrello Shopify.
+  Pagina prodotto: foto grande con zoom, miniature se ci sono più foto, prezzo, descrizione, bottone carrello
+  (o stato Venduto con rimando al su misura), WhatsApp, note di cura, "Altri pezzi".
+  Carrello: righe con quantità e Rimuovi, note per l'ordine, subtotale, "Vai al pagamento".
+  Le pagine di contenuto (`/pages/...`), la collezione e il checkout usano ancora l'aspetto standard.
 - Il tema **Grazie al Cactus** (id 205997375831) è quello pubblicato ora, composto con i blocchi di Horizon: da sostituire con v2.
 
 ## Da fare nell'admin (non possibile via API)
