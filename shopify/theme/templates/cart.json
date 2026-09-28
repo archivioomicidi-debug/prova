@@ -1,0 +1,5 @@
+{
+  "layout": "gac",
+  "sections": { "main": { "type": "gac-cart", "settings": {} } },
+  "order": ["main"]
+}

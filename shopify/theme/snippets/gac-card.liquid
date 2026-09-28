@@ -1,0 +1,28 @@
+{%- comment -%} Card prodotto: render 'gac-card', product: p, index: i {%- endcomment -%}
+{%- assign sm = 'gac-' | append: product.handle | append: '-sm.jpg' -%}
+{%- assign tag = '' -%}
+{%- for t in product.tags -%}{%- if t != 'LattaViva' and tag == '' -%}{%- assign tag = t -%}{%- endif -%}{%- endfor -%}
+{%- assign desc = product.description | split: '</p>' | first | strip_html -%}
+<article class="card{% unless product.available %} is-sold{% endunless %}" id="p-{{ product.handle }}" data-index="{{ index }}" data-name="{{ product.title | escape }}" data-full="{{ product.featured_image | image_url: width: 1200 }}" data-alt="{{ product.featured_image.alt | escape }}">
+  <button class="card-media" type="button" aria-label="Ingrandisci: {{ product.title | escape }}">
+    <img src="{{ sm | asset_url }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" decoding="async" width="600" height="800">
+    {%- if tag != '' -%}<span class="tag">{{ tag }}</span>{%- endif -%}
+    {%- unless product.available -%}<span class="sold-badge">Venduto</span>{%- endunless -%}
+  </button>
+  <div class="card-body">
+    <div class="card-head">
+      <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+      <span class="price">{{ product.price | money }}</span>
+    </div>
+    <p>{{ desc }}</p>
+    {%- if product.available -%}
+    <form method="post" action="{{ routes.cart_add_url }}" class="add-form" data-title="{{ product.title | escape }}">
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="btn btn-primary btn-full">Aggiungi al carrello</button>
+    </form>
+    {%- else -%}
+    <span class="sold-label">Venduto</span>
+    {%- endif -%}
+  </div>
+</article>

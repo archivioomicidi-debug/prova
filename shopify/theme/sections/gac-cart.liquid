@@ -1,0 +1,56 @@
+{% render 'gac-header' %}
+<main id="top" class="page">
+  <section class="wrap cart-page">
+    <div class="section-head">
+      <p class="kicker">Carrello</p>
+      <h1>Il tuo <em>carrello.</em></h1>
+    </div>
+
+    {%- if cart.item_count == 0 -%}
+    <div class="cart-empty">
+      <p>Il carrello &egrave; vuoto.</p>
+      <p class="muted">Ogni pezzo &egrave; uno solo: quello che ti piace, prendilo finch&eacute; c'&egrave;.</p>
+      <a class="btn btn-primary" href="{{ routes.root_url }}#pezzi">Guarda i pezzi</a>
+    </div>
+    {%- else -%}
+    <form action="{{ routes.cart_url }}" method="post" class="cart-layout" id="cart-form">
+      <ul class="cart-items">
+        {%- for item in cart.items -%}
+        <li class="cart-item">
+          <a href="{{ item.url }}" class="cart-thumb"><img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.image.alt | escape }}" width="120" height="150"></a>
+          <div class="cart-item-info">
+            <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+            <p class="fine">Pezzo unico &middot; {{ item.final_price | money }}</p>
+            <div class="cart-item-actions">
+              <label class="qty"><span>Quantit&agrave;</span><input type="number" name="updates[]" value="{{ item.quantity }}" min="0" max="{{ item.variant.inventory_quantity }}" aria-label="Quantit&agrave; di {{ item.product.title | escape }}"></label>
+              <a href="{{ item.url_to_remove }}" class="link-btn">Rimuovi</a>
+            </div>
+          </div>
+          <span class="price">{{ item.final_line_price | money }}</span>
+        </li>
+        {%- endfor -%}
+      </ul>
+
+      <aside class="cart-summary">
+        <label class="cart-note">
+          <span>Note per noi <small>(biglietto, dedica, consegna)</small></span>
+          <textarea name="note" rows="3" placeholder="Es. &egrave; un regalo, aggiungete un biglietto con scritto...">{{ cart.note }}</textarea>
+        </label>
+        <dl class="totals">
+          <div><dt>Subtotale</dt><dd>{{ cart.total_price | money }}</dd></div>
+          <div><dt>Spedizione</dt><dd>calcolata al pagamento</dd></div>
+        </dl>
+        <button type="submit" name="checkout" class="btn btn-primary btn-full">Vai al pagamento</button>
+        <button type="submit" name="update" class="btn btn-ghost btn-full">Aggiorna il carrello</button>
+        <p class="fine">Pagamento sicuro con carta, PayPal e gli altri metodi disponibili. Ritiro a mano selezionabile al pagamento.</p>
+        <a class="btn btn-wa btn-sm" href="https://wa.me/393289871514?text=Ciao%20Grazie%20al%20Cactus!%20Ho%20una%20domanda%20sul%20mio%20ordine." target="_blank" rel="noopener">Dubbi? Scrivici su WhatsApp</a>
+      </aside>
+    </form>
+    {%- endif -%}
+  </section>
+</main>
+{% render 'gac-footer' %}
+{% render 'gac-extras' %}
+{% schema %}
+{ "name": "Grazie al Cactus · Carrello", "settings": [] }
+{% endschema %}

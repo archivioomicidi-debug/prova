@@ -1,0 +1,86 @@
+{% render 'gac-header' %}
+{%- assign tag = '' -%}
+{%- for t in product.tags -%}{%- if t != 'LattaViva' and tag == '' -%}{%- assign tag = t -%}{%- endif -%}{%- endfor -%}
+{%- assign wa_text = 'Ciao Grazie al Cactus! Ho una domanda su "' | append: product.title | append: '": ' | append: shop.url | append: product.url | url_encode -%}
+<main id="top" class="page">
+  <section class="wrap product-page">
+    <a class="back" href="{{ routes.root_url }}#pezzi">&larr; Tutti i pezzi</a>
+    <div class="product-layout">
+      <div class="gallery">
+        <button class="gallery-media" type="button" data-full="{{ product.featured_image | image_url: width: 1600 }}" data-name="{{ product.title | escape }}" data-alt="{{ product.featured_image.alt | escape }}" aria-label="Ingrandisci la foto">
+          <img id="gallery-main" src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product.featured_image.alt | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" fetchpriority="high">
+          {%- unless product.available -%}<span class="sold-badge">Venduto</span>{%- endunless -%}
+          {%- if tag != '' -%}<span class="tag">{{ tag }}</span>{%- endif -%}
+        </button>
+        {%- if product.images.size > 1 -%}
+        <div class="thumbs" role="list">
+          {%- for image in product.images -%}
+          <button class="thumb{% if forloop.first %} is-active{% endif %}" type="button" role="listitem" data-src="{{ image | image_url: width: 1000 }}" data-full="{{ image | image_url: width: 1600 }}" aria-label="Foto {{ forloop.index }}">
+            <img src="{{ image | image_url: width: 240 }}" alt="" loading="lazy" width="120" height="150">
+          </button>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-info">
+        {%- if tag != '' -%}<p class="kicker">{{ tag }}</p>{%- endif -%}
+        <h1>{{ product.title }}</h1>
+        <p class="product-price">{{ product.price | money }}</p>
+        <div class="rte">{{ product.description }}</div>
+
+        {%- if product.available -%}
+        <form method="post" action="{{ routes.cart_add_url }}" class="add-form" data-title="{{ product.title | escape }}">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="btn btn-primary btn-full">Aggiungi al carrello</button>
+        </form>
+        <p class="fine">Pezzo unico: ne esiste uno solo. Quando lo aggiungi al carrello resta tuo fino al pagamento.</p>
+        {%- else -%}
+        <span class="sold-label">Venduto</span>
+        <p class="fine">Questo pezzo ha gi&agrave; trovato casa. Guarda gli altri, oppure chiedine uno simile su misura.</p>
+        <a class="btn btn-ghost" href="{{ routes.root_url }}#su-misura">Chiedi un pezzo su misura</a>
+        {%- endif -%}
+
+        <a class="btn btn-wa btn-sm product-wa" href="https://wa.me/393289871514?text={{ wa_text }}" target="_blank" rel="noopener">Hai una domanda su questo pezzo? Scrivici</a>
+
+        <ul class="facts product-facts" aria-label="Consegna e spedizione">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><span><strong>Spedizione</strong> in tutta Italia, imballo protetto</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10Z"/><circle cx="12" cy="11" r="2.2"/></svg><span><strong>Consegna a mano</strong> in zona</span></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h4l2-3h4l2 3h4v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span><strong>Foto prima di spedire</strong>, sempre</span></li>
+        </ul>
+
+        <div class="care-mini">
+          <p class="kicker">Cura in tre regole</p>
+          <ul>
+            <li><strong>Luce.</strong> Vicino a una finestra luminosa.</li>
+            <li><strong>Acqua, poca.</strong> Ogni 2&ndash;3 settimane in estate, quasi mai in inverno.</li>
+            <li><strong>Niente ristagno.</strong> Lo strato drenante c'&egrave; gi&agrave;: mai acqua ferma.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- assign others = collections['creazioni-lattaviva'].products | where: 'available', true -%}
+  {%- assign shown = 0 -%}
+  <section class="wrap related">
+    <div class="section-head">
+      <p class="kicker">Altri pezzi</p>
+      <h2>Potrebbero <em>piacerti.</em></h2>
+    </div>
+    <div class="grid" id="product-grid">
+      {%- for p in others -%}
+        {%- if p.handle != product.handle and shown < 3 -%}
+          {%- render 'gac-card', product: p, index: shown -%}
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+</main>
+{% render 'gac-footer' %}
+{% render 'gac-extras' %}
+{% schema %}
+{ "name": "Grazie al Cactus · Prodotto", "settings": [] }
+{% endschema %}

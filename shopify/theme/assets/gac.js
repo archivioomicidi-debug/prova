@@ -8,7 +8,7 @@ const CONTATTI = {
   // Numero WhatsApp in formato internazionale, senza + né spazi.
   whatsapp: "393289871514",
   whatsappLabel: "+39 328 987 1514",
-  email: "info@grazie-al-cactus.it",
+  email: "graziealcactus@gmail.com",
   instagram: "https://www.instagram.com/grazie_al_cactus",
   instagramLabel: "@grazie_al_cactus",
   facebook: "https://www.facebook.com/grazie.al.cactus",
@@ -120,8 +120,9 @@ function initNav() {
 /* ---------- Lightbox ---------- */
 let lbIndex = 0;
 let lbReturnFocus = null;
+const lightboxItems = () => [...document.querySelectorAll(".gallery-media[data-full], #product-grid .card[data-full]")];
 function showLightbox(i) {
-  const list = [...document.querySelectorAll("#product-grid .card")];
+  const list = lightboxItems();
   if (!list.length) return;
   lbIndex = (i + list.length) % list.length;
   const c = list[lbIndex];
@@ -142,9 +143,23 @@ function closeLightbox() {
   document.body.style.overflow = "";
   if (lbReturnFocus) lbReturnFocus.focus();
 }
-function bindLightbox(root) {
-  root.querySelectorAll(".card-media").forEach((btn) => {
-    btn.addEventListener("click", () => openLightbox(Number(btn.closest(".card").dataset.index), btn));
+function bindLightbox() {
+  const items = lightboxItems();
+  items.forEach((el, i) => {
+    const btn = el.matches(".gallery-media") ? el : el.querySelector(".card-media");
+    if (btn) btn.addEventListener("click", () => openLightbox(i, btn));
+  });
+}
+function initThumbs() {
+  const main = $("#gallery-main");
+  const media = $(".gallery-media");
+  if (!main || !media) return;
+  document.querySelectorAll(".thumb").forEach((t) => {
+    t.addEventListener("click", () => {
+      main.src = t.dataset.src;
+      media.dataset.full = t.dataset.full;
+      document.querySelectorAll(".thumb").forEach((x) => x.classList.toggle("is-active", x === t));
+    });
   });
 }
 function initLightbox() {
@@ -179,12 +194,13 @@ function initLightbox() {
 
 /* ---------- Avvio ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  $("#year").textContent = new Date().getFullYear();
-  $("#phone-label").textContent = CONTATTI.whatsappLabel;
-  $("#email-label").textContent = CONTATTI.email;
-  $("#instagram-label").textContent = CONTATTI.instagramLabel;
-  $("#footer-phone").textContent = CONTATTI.whatsappLabel;
-  $("#footer-email").textContent = CONTATTI.email;
+  const setText = (sel, v) => { const el = $(sel); if (el) el.textContent = v; };
+  setText("#year", new Date().getFullYear());
+  setText("#phone-label", CONTATTI.whatsappLabel);
+  setText("#email-label", CONTATTI.email);
+  setText("#instagram-label", CONTATTI.instagramLabel);
+  setText("#footer-phone", CONTATTI.whatsappLabel);
+  setText("#footer-email", CONTATTI.email);
 
   document.querySelectorAll("[data-social]").forEach((a) => {
     const k = a.dataset.social;
@@ -193,9 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (CONTATTI[k]) a.href = CONTATTI[k];
   });
 
-  bindLightbox($("#product-grid"));
+  bindLightbox();
+  initThumbs();
   initCart();
-  initCustomForm();
+  if ($("#custom-form")) initCustomForm();
   initNav();
   initLightbox();
 
