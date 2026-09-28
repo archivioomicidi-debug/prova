@@ -42,7 +42,7 @@
       </ol>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <div class="blob blob-main"><img src="{{ all_products['farfalla-oro'].featured_image | image_url: width: 1200 }}" alt="" width="833" height="1600" fetchpriority="high" decoding="async"></div>
+      <div class="blob blob-main"><img src="{%- assign hero = all_products['farfalla-doro'] -%}{%- if hero.featured_image == blank -%}{%- assign hero = collections['creazioni-lattaviva'].products.first -%}{%- endif -%}{{ hero.featured_image | image_url: width: 1200 }}" alt="" width="833" height="1600" fetchpriority="high" decoding="async"></div>
       <div class="blob blob-small"><img src="{{ 'gac-blu-porcellana-sm.jpg' | asset_url }}" alt="" width="600" height="800" decoding="async"></div>
       <span class="hero-badge">{% assign disponibili = collections['creazioni-lattaviva'].products | where: 'available', true | size %}<strong id="count-available">{{ disponibili }}</strong> {% if disponibili == 1 %}pezzo disponibile ora{% else %}pezzi disponibili ora{% endif %}</span>
     </div>
@@ -327,7 +327,7 @@
   </div>
   <div class="wrap footer-bottom">
     <p>© <span id="year"></span> Grazie al Cactus · Pezzi unici: le foto mostrano l'esemplare reale, la pianta può cambiare leggermente nel tempo.</p>
-    <p>Questo sito non usa cookie e non raccoglie dati: i contatti avvengono solo tramite le app che scegli tu.</p>
+    <p>Questo sito non usa cookie di profilazione: i contatti avvengono solo tramite le app che scegli tu.</p>
     <a href="#top" class="to-top">Torna su ↑</a>
   </div>
 </footer>
