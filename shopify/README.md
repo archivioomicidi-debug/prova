@@ -68,12 +68,15 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
 - Collezione automatica **Creazioni LattaViva** (`/collections/creazioni-lattaviva`), regola: tag = LattaViva.
 - Pagine: `/pages/lattaviva`, `/pages/su-misura`, `/pages/come-nascono`, `/pages/cura`, `/pages/domande-frequenti`.
 - Menu principale e menu footer aggiornati.
-- Tema **Grazie al Cactus** (copia di Horizon, non pubblicato, id 205997375831) con homepage completa
-  (`templates/index.json`) e impostazioni colori/caratteri (`config/settings_data.json`).
+- Tema **Grazie al Cactus v2** (id 205997932887, non pubblicato): homepage identica al sito locale.
+  I file sono in `shopify/theme/`: `layout/gac.liquid`, `sections/gac-home.liquid`, `templates/index.json`,
+  `assets/gac.css.liquid`, `assets/gac.js`, più font e miniature caricati come asset `gac-*`.
+  I pezzi vengono dalla collezione Creazioni LattaViva; "Aggiungi al carrello" usa il carrello Shopify.
+- Il tema **Grazie al Cactus** (id 205997375831) è quello pubblicato ora, composto con i blocchi di Horizon: da sostituire con v2.
 
 ## Da fare nell'admin (non possibile via API)
 
-1. Negozio online → Temi → **Grazie al Cactus** → Anteprima, poi **Pubblica**.
+1. Negozio online → Temi → **Grazie al Cactus v2** → Anteprima, poi **Pubblica**.
 2. Impostazioni → Generali → nome negozio "Grazie al Cactus".
 3. Impostazioni → Spedizione e consegna, Pagamenti, Informative, Piano.
 4. Personalizza → Intestazione: carica il logo; Piè di pagina: link social.
