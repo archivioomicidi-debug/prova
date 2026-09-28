@@ -29,21 +29,21 @@ function renderProducts() {
     const msg = `Ciao Grazie al Cactus! Vorrei ordinare "${p.name}"${p.price ? ` (${eur(p.price)})` : ""}. È ancora disponibile?\n${pageUrl()}#p-${p.id}`;
     const action = p.sold
       ? `<span class="sold-label">Venduto</span>`
-      : `<a class="btn btn-wa btn-sm" href="${waLink(msg)}" target="_blank" rel="noopener">${WA_ICON} Ordina su WhatsApp</a>`;
+      : `<a class="btn btn-wa btn-full" href="${waLink(msg)}" target="_blank" rel="noopener">${WA_ICON} Ordina su WhatsApp</a>`;
     return `
       <article class="card${p.sold ? " is-sold" : ""}" id="p-${p.id}" data-index="${i}" data-name="${esc(p.name)}">
         <button class="card-media" type="button" data-full="${p.img}.jpg" aria-label="Ingrandisci: ${esc(p.name)}">
           <img src="${p.img}-sm.jpg" alt="${esc(p.alt)}" loading="${i < 3 ? "eager" : "lazy"}" decoding="async" width="600" height="800">
+          <span class="tag">${esc(p.tag)}</span>
           ${p.sold ? `<span class="sold-badge">Venduto</span>` : ""}
         </button>
         <div class="card-body">
-          <span class="tag">${esc(p.tag)}</span>
-          <h3>${esc(p.name)}</h3>
-          <p>${esc(p.desc)}</p>
-          <div class="card-foot">
-            ${p.price ? `<span class="price">${eur(p.price)}</span>` : `<span class="price price-ask">Prezzo su richiesta</span>`}
-            ${action}
+          <div class="card-head">
+            <h3>${esc(p.name)}</h3>
+            ${p.price ? `<span class="price">${eur(p.price)}</span>` : `<span class="price price-ask">Su richiesta</span>`}
           </div>
+          <p>${esc(p.desc)}</p>
+          ${action}
         </div>
       </article>`;
   }).join("");
