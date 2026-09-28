@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} · {{ shop.name }}{% endunless %}</title>
+  {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+  <meta name="theme-color" content="#fffdf8">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="icon" href="{{ 'gac-favicon.svg' | asset_url }}" type="image/svg+xml">
+  <link rel="preload" as="font" href="{{ 'gac-nunito.woff2' | asset_url }}" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="{{ 'gac-fraunces-normal.woff2' | asset_url }}" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ 'gac.css' | asset_url }}">
+  {{ content_for_header }}
+</head>
+<body>
+  {{ content_for_layout }}
+  <script src="{{ 'gac.js' | asset_url }}" defer></script>
+</body>
+</html>
