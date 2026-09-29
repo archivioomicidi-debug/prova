@@ -80,6 +80,10 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
   Le pagine di contenuto (`/pages/...`), la collezione e il checkout usano ancora l'aspetto standard.
 - Il tema **Grazie al Cactus** (id 205997375831) è quello pubblicato ora, composto con i blocchi di Horizon: da sostituire con v2.
 
+- Logo: i file sono `img/logo-wide.png` (header), `img/logo.png` (footer, social), `img/icon-512.png` e `favicon.png`.
+  Nel tema vanno caricati come asset `gac-logo-wide.png`, `gac-logo.png`, `gac-icon-512.png`, `gac-favicon.png`
+  (i file Liquid in `shopify/theme/` li usano già). Da fare su una copia del tema pubblicato, poi ripubblicare.
+
 ## Da fare nell'admin (non possibile via API)
 
 1. Negozio online → Temi → **Grazie al Cactus v2** → Anteprima, poi **Pubblica**.
