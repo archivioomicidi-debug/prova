@@ -1,0 +1,46 @@
+# Copia questo file in config.yaml e compila i campi. NON caricare config.yaml su GitHub.
+
+telegram:
+  api_id: 1234567                 # da https://my.telegram.org -> API development tools
+  api_hash: "la_tua_api_hash"
+  chat: -1001234567890            # ID del gruppo (lo trovi con: python -m signal_bot.main --list-chats)
+  notify_chat: "me"               # dove mandare le conferme ("me" = Messaggi salvati)
+  session: signal_bot
+
+mt5:
+  # Se MT5 è già aperto e loggato puoi lasciare vuoti questi campi
+  path: ""                        # es. "C:/Program Files/MetaTrader 5/terminal64.exe"
+  login: ""
+  password: ""
+  server: ""
+
+trading:
+  dry_run: true                   # true = calcola e notifica ma NON apre ordini. Mettilo a false solo dopo i test
+  allow_live: false               # false = si rifiuta di operare su un conto reale
+  magic: 770011                   # identifica gli ordini del bot
+
+  symbol_map:                     # nome nel segnale -> nome sul broker
+    XAUUSD: XAUUSD
+    GOLD: XAUUSD
+  symbol_suffix: ""               # es. "m" o ".r" se il broker usa XAUUSDm / XAUUSD.r
+  allowed_symbols: [XAUUSD]
+
+  lot_mode: risk                  # "risk" = lotti calcolati dal rischio, "fixed" = lotti fissi
+  risk_percent: 1.0               # % del saldo persa se TUTTE le posizioni prendono lo stop
+  fixed_total_lot: 0.04           # usato solo con lot_mode: fixed
+
+  # Su quali TP dividere la posizione (una posizione per TP, lotti uguali).
+  # "OPEN" = posizione senza take profit, protetta dallo stop/pareggio.
+  tp_targets: [1, 2, 3, "OPEN"]
+  breakeven_after_first_tp: true  # quando il primo TP viene preso, sposta lo SL delle altre all'entry
+
+  pending_on_miss: true           # prezzo già fuori dal range (ma prima del TP1) -> ordine limite sul bordo del range
+  pending_expiry_minutes: 60      # dopo quanto cancellare i pendenti non eseguiti
+  max_slippage_points: 30
+
+  max_open_signals: 3
+  max_daily_loss_percent: 3       # blocca nuovi segnali se oggi hai già perso questa %
+  monitor_seconds: 5
+
+state_file: state.json
+log_file: bot.log
