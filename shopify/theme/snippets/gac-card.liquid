@@ -1,7 +1,11 @@
 {%- comment -%} Card prodotto: render 'gac-card', product: p, index: i {%- endcomment -%}
-{%- comment -%} Miniature curate nel tema solo per i primi pezzi; per gli altri si usa la foto del prodotto ritagliata 3:4. {%- endcomment -%}
-{%- assign curated = 'farfalla-doro,blu-porcellana,oro-grezzo,brilla-sempre,il-barattolo-verde,fiori-vintage,rose-antiche,strega-al-tramonto,strega-viola' | split: ',' -%}
-{%- if curated contains product.handle -%}
+{%- comment -%}
+  Miniatura curata solo se il prodotto ha ancora la foto originale per cui è stata preparata.
+  Se la foto cambia, o il pezzo è nuovo, si usa la foto del prodotto ritagliata 3:4.
+{%- endcomment -%}
+{%- assign original_media = '63508181483863,63508181516631,63508181549399,63508181582167,63508181614935,63508181647703,63508181680471,63508181713239,63508181746007' | split: ',' -%}
+{%- assign mid = product.featured_media.id | append: '' -%}
+{%- if original_media contains mid -%}
   {%- assign thumb = 'gac-' | append: product.handle | append: '-sm.jpg' | asset_url -%}
 {%- else -%}
   {%- assign thumb = product.featured_image | image_url: width: 600, height: 800, crop: 'center' -%}

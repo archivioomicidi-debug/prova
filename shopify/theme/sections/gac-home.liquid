@@ -42,7 +42,9 @@
     </div>
     <div class="hero-visual" aria-hidden="true">
       <div class="blob blob-main"><img src="{%- assign hero = all_products['farfalla-doro'] -%}{%- if hero.featured_image == blank -%}{%- assign hero = collections['creazioni-lattaviva'].products.first -%}{%- endif -%}{{ hero.featured_image | image_url: width: 1200 }}" alt="" width="833" height="1600" fetchpriority="high" decoding="async"></div>
-      <div class="blob blob-small"><img src="{{ 'gac-blu-porcellana-sm.jpg' | asset_url }}" alt="" width="600" height="800" decoding="async"></div>
+      {%- assign hero2 = all_products['blu-porcellana'] -%}
+      {%- if hero2.featured_image == blank -%}{%- assign hero2 = collections['creazioni-lattaviva'].products[1] -%}{%- endif -%}
+      <div class="blob blob-small"><img src="{{ hero2.featured_image | image_url: width: 600, height: 800, crop: 'center' }}" alt="" width="600" height="800" decoding="async"></div>
       <span class="hero-badge">{% assign disponibili = collections['creazioni-lattaviva'].products | where: 'available', true | size %}<strong id="count-available">{{ disponibili }}</strong> {% if disponibili == 1 %}pezzo disponibile ora{% else %}pezzi disponibili ora{% endif %}</span>
     </div>
   </section>
