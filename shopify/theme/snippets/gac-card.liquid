@@ -1,11 +1,17 @@
 {%- comment -%} Card prodotto: render 'gac-card', product: p, index: i {%- endcomment -%}
-{%- assign sm = 'gac-' | append: product.handle | append: '-sm.jpg' -%}
+{%- comment -%} Miniature curate nel tema solo per i primi pezzi; per gli altri si usa la foto del prodotto ritagliata 3:4. {%- endcomment -%}
+{%- assign curated = 'farfalla-doro,blu-porcellana,oro-grezzo,brilla-sempre,il-barattolo-verde,fiori-vintage,rose-antiche,strega-al-tramonto,strega-viola' | split: ',' -%}
+{%- if curated contains product.handle -%}
+  {%- assign thumb = 'gac-' | append: product.handle | append: '-sm.jpg' | asset_url -%}
+{%- else -%}
+  {%- assign thumb = product.featured_image | image_url: width: 600, height: 800, crop: 'center' -%}
+{%- endif -%}
 {%- assign tag = '' -%}
 {%- for t in product.tags -%}{%- if t != 'LattaViva' and tag == '' -%}{%- assign tag = t -%}{%- endif -%}{%- endfor -%}
 {%- assign desc = product.description | split: '</p>' | first | strip_html -%}
 <article class="card{% unless product.available %} is-sold{% endunless %}" id="p-{{ product.handle }}" data-index="{{ index }}" data-name="{{ product.title | escape }}" data-full="{{ product.featured_image | image_url: width: 1200 }}" data-alt="{{ product.featured_image.alt | escape }}">
   <button class="card-media" type="button" aria-label="Ingrandisci: {{ product.title | escape }}">
-    <img src="{{ sm | asset_url }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" decoding="async" width="600" height="800">
+    <img src="{{ thumb }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="{% if index < 3 %}eager{% else %}lazy{% endif %}" decoding="async" width="600" height="800">
     {%- if tag != '' -%}<span class="tag">{{ tag }}</span>{%- endif -%}
     {%- unless product.available -%}<span class="sold-badge">Venduto</span>{%- endunless -%}
   </button>
