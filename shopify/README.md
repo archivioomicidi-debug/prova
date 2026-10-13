@@ -68,7 +68,8 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
 - Collezione automatica **Creazioni LattaViva** (`/collections/creazioni-lattaviva`), regola: tag = LattaViva.
 - Pagine: `/pages/lattaviva`, `/pages/su-misura`, `/pages/come-nascono`, `/pages/cura`, `/pages/domande-frequenti`.
 - Menu principale e menu footer aggiornati.
-- Tema **Grazie al Cactus v3** (id 207062204759, non pubblicato): copia di v2 con il logo e le card che usano la foto prodotto per i pezzi senza miniatura. Da pubblicare.
+- Tema **Grazie al Cactus v4** (id 207062401367, non pubblicato): come v3, ma le miniature curate si usano solo finché il prodotto ha la foto originale; se la foto cambia si usa quella nuova. Da pubblicare.
+- Tema **Grazie al Cactus v3** (id 207062204759, pubblicato): logo e card con foto prodotto per i pezzi nuovi.
 - Tema **Grazie al Cactus v2** (id 205997932887, pubblicato): homepage identica al sito locale,
   più pagina prodotto e carrello nello stesso stile.
   I file sono in `shopify/theme/`: `layout/gac.liquid`, `sections/gac-home.liquid`, `sections/gac-product.liquid`,
