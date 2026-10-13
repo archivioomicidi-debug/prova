@@ -68,7 +68,8 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
 - Collezione automatica **Creazioni LattaViva** (`/collections/creazioni-lattaviva`), regola: tag = LattaViva.
 - Pagine: `/pages/lattaviva`, `/pages/su-misura`, `/pages/come-nascono`, `/pages/cura`, `/pages/domande-frequenti`.
 - Menu principale e menu footer aggiornati.
-- Tema **Grazie al Cactus v2** (id 205997932887, non pubblicato): homepage identica al sito locale,
+- Tema **Grazie al Cactus v3** (id 207062204759, non pubblicato): copia di v2 con il logo e le card che usano la foto prodotto per i pezzi senza miniatura. Da pubblicare.
+- Tema **Grazie al Cactus v2** (id 205997932887, pubblicato): homepage identica al sito locale,
   più pagina prodotto e carrello nello stesso stile.
   I file sono in `shopify/theme/`: `layout/gac.liquid`, `sections/gac-home.liquid`, `sections/gac-product.liquid`,
   `sections/gac-cart.liquid`, `snippets/gac-{header,footer,extras,card}.liquid`, `templates/{index,product,cart}.json`,
@@ -82,7 +83,9 @@ Negozio: xdjsad-tw.myshopify.com (graziealcactus@gmail.com), piano di prova.
 
 - Logo: i file sono `img/logo-wide.png` (header), `img/logo.png` (footer, social), `img/icon-512.png` e `favicon.png`.
   Nel tema vanno caricati come asset `gac-logo-wide.png`, `gac-logo.png`, `gac-icon-512.png`, `gac-favicon.png`
-  (i file Liquid in `shopify/theme/` li usano già). Da fare su una copia del tema pubblicato, poi ripubblicare.
+  (i file Liquid in `shopify/theme/` li usano già). Già caricati nel tema v3.
+
+- I pezzi aggiunti dall'admin entrano in home solo con il tag `LattaViva` (la collezione è automatica su quel tag).
 
 ## Da fare nell'admin (non possibile via API)
 
